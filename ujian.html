@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>BimCat</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+            <div class="container px-5">
+                <a class="navbar-brand fw-bold d-flex align-items-center" >
+                    <img src="assets/img/logo.png" alt="Logo KUA" width="30" height="30" class="me-2">
+                    BimCat - KUA Cipunagara
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link me-lg-3" href="index.html">Beranda</a>
+                          </li>
+                        
+                    </ul>
+                    
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+       
+        <!-- Tambahkan ini di bagian <head> atau sebelum </body> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    Swal.fire({
+      icon: 'info',
+      title: 'Perhatian!',
+      html: `
+        <div style="text-align: left; font-size: 15px; line-height: 1.5;">
+          <p>Sebelum memulai <strong>Ujian Kelayakan Nikah</strong>, harap perhatikan hal-hal berikut:</p>
+          <ul style="padding-left: 25px; margin: 0;">
+            <li>Mengisi <strong>Nama Lengkap</strong> kedua calon pengantin dengan benar</li>
+            <li>Centang pilihan <strong>KUA Kecamatan Cipunagara</strong></li>
+            <li>Keseluruhan Soal: <strong>50 Soal</strong></li>
+            <li>Nilai Minimal Kelulusan:<strong> 75</strong></li>
+            <li>Waktu Pengerjaan: <strong>50 menit</strong></li>
+          </ul>
+          <br>
+          <p><strong><em>Kerjakan soal dengan sebaik-baiknya agar mendapatkan hasil yang maksimal.</em></strong></p>
+        </div>
+      `,
+      confirmButtonText: 'Saya Mengerti',
+      confirmButtonColor: '#3085d6',
+      backdrop: true,
+      allowOutsideClick: false,
+      allowEscapeKey: false
+    });
+  });
+</script>
+
+
+
+     <!-- Fitur Ujian Kelayakan Nikah -->
+     
+     <section id="ujianKelayakanNikah">
+      <div class="container">
+        <h2>CAT - Ujian Kelayakan Nikah</h2>
+    
+        <!-- Formulir Pengisian Nama dan KUA -->
+        <div id="formSection">
+          <label>Nama Calon Suami:
+            <input type="text" id="suami" placeholder="Nama Lengkap">
+          </label>
+    
+          <label>Nama Calon Istri:
+            <input type="text" id="istri" placeholder="Nama Lengkap">
+          </label>
+    
+          <label><input type="checkbox" id="kuaCipunagara"> KUA Kecamatan Cipunagara</label><br><br>
+    
+          <button class="btn" onclick="startExam()">Mulai Ujian</button>
+        </div>
+    
+        <!-- Formulir Ujian -->
+        <div id="quizSection" style="display:none;">
+          <div id="timer">Sisa waktu: --:--</div>
+          <form id="quizForm">
+            
+              
+              <div class="question">
+                <p>1. Apa yang paling penting dalam mempersiapkan pernikahan?</p>
+                <label><input type="radio" name="q34" value="1"> a. Kesiapan mental dan emosional</label>
+                <label><input type="radio" name="q34" value="0"> b. Memilih gaun pengantin yang indah</label>
+                <label><input type="radio" name="q34" value="0"> c. Menyusun daftar tamu yang banyak</label>
+                <label><input type="radio" name="q34" value="0"> d. Mempersiapkan hadiah untuk pengantin</label>
+              </div>
+              
+              <div class="question">
+                <p>2. Apa yang harus dibicarakan sebelum menikah?</p>
+                <label><input type="radio" name="q35" value="1"> a. Tujuan hidup dan perencanaan masa depan</label>
+                <label><input type="radio" name="q35" value="0"> b. Pakaian yang akan dikenakan di hari pernikahan</label>
+                <label><input type="radio" name="q35" value="0"> c. Tempat bulan madu</label>
+                <label><input type="radio" name="q35" value="0"> d. Siapa yang akan datang ke pernikahan</label>
+              </div>
+              
+              <div class="question">
+                <p>3. Apa yang perlu dipersiapkan oleh pasangan yang akan menikah?</p>
+                <label><input type="radio" name="q36" value="1"> a. Kesiapan untuk menjalani kehidupan bersama</label>
+                <label><input type="radio" name="q36" value="0"> b. Memilih tempat pernikahan yang mewah</label>
+                <label><input type="radio" name="q36" value="0"> c. Memilih hadiah pernikahan yang mahal</label>
+                <label><input type="radio" name="q36" value="0"> d. Memastikan jumlah undangan yang tepat</label>
+              </div>
+              <div class="question">
+              <p>4. Apakah sahabat siap secara finansial untuk menikah?</p>
+              <label><input type="radio" name="q4" value="0"> a. Belum ada penghasilan</label>
+              <label><input type="radio" name="q4" value="0"> b. Masih bergantung pada orang tua</label>
+              <label><input type="radio" name="q4" value="1"> c. Ada tabungan dan penghasilan tetap</label>
+              <label><input type="radio" name="q4" value="0"> d. Sedikit-sedikit mulai menabung</label>
+            </div>
+            
+            <div class="question">
+              <p>5. Apakah sahabat dan pasangan sudah membahas perencanaan keluarga?</p>
+              <label><input type="radio" name="q5" value="0"> a. Belum sama sekali</label>
+              <label><input type="radio" name="q5" value="0"> b. Sudah membahas sedikit</label>
+              <label><input type="radio" name="q5" value="1"> c. Sudah dan sepakat bersama</label>
+              <label><input type="radio" name="q5" value="0"> d. Hanya berdasarkan keinginan sendiri</label>
+            </div>
+            
+            <div class="question">
+              <p>6. Apa yang akan sahabat lakukan jika pasanganmu kehilangan pekerjaan?</p>
+              <label><input type="radio" name="q6" value="0"> a. Langsung menyalahkan</label>
+              <label><input type="radio" name="q6" value="1"> b. Memberi semangat dan mencari solusi bersama</label>
+              <label><input type="radio" name="q6" value="0"> c. Meminta bantuan orang tua</label>
+              <label><input type="radio" name="q6" value="0"> d. Menjauhi sementara</label>
+            </div>
+            
+            <div class="question">
+              <p>7. Bagaimana sahabat merespons perbedaan pendapat dalam rumah tangga?</p>
+              <label><input type="radio" name="q7" value="0"> a. Marah dan bertengkar</label>
+              <label><input type="radio" name="q7" value="0"> b. Diam saja</label>
+              <label><input type="radio" name="q7" value="1"> c. Berusaha memahami dan berdiskusi</label>
+              <label><input type="radio" name="q7" value="0"> d. Mengalah walau tidak ikhlas</label>
+            </div>
+            
+            <div class="question">
+              <p>8. Seberapa penting komunikasi dalam pernikahan menurut sahabat?</p>
+              <label><input type="radio" name="q8" value="0"> a. Kurang penting</label>
+              <label><input type="radio" name="q8" value="0"> b. Penting hanya saat ada masalah</label>
+              <label><input type="radio" name="q8" value="1"> c. Sangat penting untuk membangun kepercayaan</label>
+              <label><input type="radio" name="q8" value="0"> d. Tidak penting</label>
+            </div>
+            
+            <div class="question">
+              <p>9. Siapa yang bertanggung jawab dalam rumah tangga?</p>
+              <label><input type="radio" name="q9" value="0"> a. Hanya suami</label>
+              <label><input type="radio" name="q9" value="0"> b. Hanya istri</label>
+              <label><input type="radio" name="q9" value="1"> c. Keduanya memiliki peran dan tanggung jawab</label>
+              <label><input type="radio" name="q9" value="0"> d. Orang tua pasangan</label>
+            </div>
+            
+            <div class="question">
+              <p>10. Apa yang sahabat pahami tentang komitmen dalam pernikahan?</p>
+              <label><input type="radio" name="q10" value="0"> a. Bersama sampai ada masalah</label>
+              <label><input type="radio" name="q10" value="0"> b. Hanya saat senang</label>
+              <label><input type="radio" name="q10" value="1"> c. Ikatan lahir batin yang dijaga sepanjang hidup</label>
+              <label><input type="radio" name="q10" value="0"> d. Bisa diputuskan kapan saja</label>
+            </div>
+            
+            <div class="question">
+              <p>11. Apakah sahabat siap menerima kekurangan pasangan?</p>
+              <label><input type="radio" name="q11" value="0"> a. Tidak, saya punya standar tinggi</label>
+              <label><input type="radio" name="q11" value="1"> b. Siap, karena semua orang punya kekurangan</label>
+              <label><input type="radio" name="q11" value="0"> c. Hanya jika tidak terlalu mengganggu</label>
+              <label><input type="radio" name="q11" value="0"> d. Tidak yakin</label>
+            </div>
+            
+            <div class="question">
+              <p>12. Bagaimana pandangan sahabat tentang pembagian tugas dalam rumah tangga?</p>
+              <label><input type="radio" name="q12" value="0"> a. Semua urusan istri</label>
+              <label><input type="radio" name="q12" value="0"> b. Semua urusan suami</label>
+              <label><input type="radio" name="q12" value="1"> c. Disesuaikan dan dikerjakan bersama</label>
+              <label><input type="radio" name="q12" value="0"> d. Mengikuti adat saja</label>
+            </div>
+            
+            <div class="question">
+              <p>13. Apakah sahabat siap menghadapi perubahan gaya hidup setelah menikah?</p>
+              <label><input type="radio" name="q13" value="0"> a. Tidak siap</label>
+              <label><input type="radio" name="q13" value="1"> b. Siap secara lahir batin</label>
+              <label><input type="radio" name="q13" value="0"> c. Masih ragu-ragu</label>
+              <label><input type="radio" name="q13" value="0"> d. Akan belajar nanti</label>
+            </div>
+            
+            <div class="question">
+              <p>14. Apakah sahabat mengenal keluarga pasangan dengan baik?</p>
+              <label><input type="radio" name="q14" value="0"> a. Tidak kenal sama sekali</label>
+              <label><input type="radio" name="q14" value="0"> b. Hanya tahu namanya</label>
+              <label><input type="radio" name="q14" value="1"> c. Sudah kenal dan pernah bertemu</label>
+              <label><input type="radio" name="q14" value="0"> d. Sudah dekat dan saling mengenal</label>
+            </div>
+            
+            <div class="question">
+              <p>15. Apakah sahabat dan pasangan memiliki nilai-nilai yang sama?</p>
+              <label><input type="radio" name="q15" value="0"> a. Tidak tahu</label>
+              <label><input type="radio" name="q15" value="1"> b. Sebagian besar sama</label>
+              <label><input type="radio" name="q15" value="0"> c. Sama sekali berbeda</label>
+              <label><input type="radio" name="q15" value="0"> d. Kurang penting</label>
+            </div>
+            
+            <div class="question">
+              <p>16. Apa pendapat sahabat jika pasangan memiliki masalah masa lalu?</p>
+              <label><input type="radio" name="q16" value="0"> a. Langsung menolak</label>
+              <label><input type="radio" name="q16" value="1"> b. Mencoba menerima dan memahami</label>
+              <label><input type="radio" name="q16" value="0"> c. Mempertanyakan terus-menerus</label>
+              <label><input type="radio" name="q16" value="0"> d. Mengungkit saat bertengkar</label>
+            </div>
+            
+            <div class="question">
+              <p>17. Apa yang sahabat lakukan jika mertua ikut campur dalam rumah tangga?</p>
+              <label><input type="radio" name="q17" value="0"> a. Mengusir dari kehidupan</label>
+              <label><input type="radio" name="q17" value="0"> b. Marah dan memutus hubungan</label>
+              <label><input type="radio" name="q17" value="1"> c. Mencari solusi bijak dan berdiskusi dengan pasangan</label>
+              <label><input type="radio" name="q17" value="0"> d. Diam saja</label>
+            </div>
+            
+            <div class="question">
+              <p>18. Apakah sahabat memahami konsekuensi hukum dan sosial dari pernikahan?</p>
+              <label><input type="radio" name="q18" value="0"> a. Belum tahu sama sekali</label>
+              <label><input type="radio" name="q18" value="0"> b. Tahu sedikit</label>
+              <label><input type="radio" name="q18" value="0"> c. Tahu dari media</label>
+              <label><input type="radio" name="q18" value="1"> d. Sudah mempelajari secara serius</label>
+            </div>
+
+            <div class="question">
+              <p>19. Dalam Islam, menikah bisa membuat kita hidup...</p>
+              <label><input type="radio" name="q19" value="0"> a. Punya banyak uang</label>
+              <label><input type="radio" name="q19" value="0"> b. Bisa jalan-jalan terus</label>
+              <label><input type="radio" name="q19" value="1"> c. Tenang, penuh kasih dan cinta</label>
+              <label><input type="radio" name="q19" value="0"> d. Jadi terkenal</label>
+            </div>
+            
+                        
+                        <div class="question">
+                          <p>20. Pernikahan dalam Islam dipandang sebagai bentuk ibadah karena:</p>
+                          <label><input type="radio" name="q20" value="0"> a. Mendapat uang panai dari mempelai pria</label>
+                          <label><input type="radio" name="q20" value="0"> b. Mendapatkan restu dari semua keluarga besar</label>
+                          <label><input type="radio" name="q20" value="1"> c. Menjalankan perintah Allah dan mengikuti sunnah Rasulullah</label>
+                          <label><input type="radio" name="q20" value="0"> d. Memberi kesempatan untuk berkarier bersama</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>21. Siapa yang termasuk mahram?</p>
+                          <label><input type="radio" name="q21" value="0"> a. Sepupu</label>
+                          <label><input type="radio" name="q21" value="0"> b. Teman dekat</label>
+                          <label><input type="radio" name="q21" value="1"> c. Ibu mertua</label>
+                          <label><input type="radio" name="q21" value="0"> d. Tetangga</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>22. Apa fungsi mahar dalam pernikahan?</p>
+                          <label><input type="radio" name="q22" value="0"> a. Sebagai bentuk cinta</label>
+                          <label><input type="radio" name="q22" value="0"> b. Bukti status sosial</label>
+                          <label><input type="radio" name="q22" value="0"> c. Hiasan pernikahan</label>
+                          <label><input type="radio" name="q22" value="1"> d. Tanda kesungguhan laki-laki dalam menikah</label>
+                        </div>
+                        
+                        <div class="question">
+              <p>23. Dalam Islam, seorang wanita yang sudah menikah perlu izin dari suami jika ingin keluar rumah. Hal ini untuk...</p>
+              <label><input type="radio" name="q23" value="0"> a. Menghormati suami dan menjaga keharmonisan rumah tangga</label>
+              <label><input type="radio" name="q23" value="1"> b. Menjaga keselamatan dan menghindari fitnah</label>
+              <label><input type="radio" name="q23" value="0"> c. Mengikuti tradisi budaya</label>
+              <label><input type="radio" name="q23" value="0"> d. Supaya suami merasa dihargai</label>
+            </div>
+            
+                        
+                        <div class="question">
+                          <p>24. Apa yang dimaksud dengan 'Sakinah' dalam pernikahan?</p>
+                          <label><input type="radio" name="q24" value="0"> a. Kemewahan</label>
+                          <label><input type="radio" name="q24" value="0"> b. Keturunan</label>
+                          <label><input type="radio" name="q24" value="1"> c. Ketentraman dan ketenangan</label>
+                          <label><input type="radio" name="q24" value="0"> d. Harta benda</label>
+                        </div>
+                        
+                        <div class="question">
+              <p>25. Dalam Islam, siapa yang bertanggung jawab untuk menjaga keharmonisan dalam keluarga?</p>
+              <label><input type="radio" name="q25" value="1"> a. Suami</label>
+              <label><input type="radio" name="q25" value="0"> b. Anak</label>
+              <label><input type="radio" name="q25" value="0"> c. Ibu</label>
+              <label><input type="radio" name="q25" value="0"> d. Mertua</label>
+            </div>
+            
+                        
+                        <div class="question">
+                          <p>26. Apakah boleh menikah tanpa persetujuan wali menurut syariat?</p>
+                          <label><input type="radio" name="q26" value="0"> a. Boleh asal suka sama suka</label>
+                          <label><input type="radio" name="q26" value="0"> b. Boleh jika sudah dewasa</label>
+                          <label><input type="radio" name="q26" value="1"> c. Tidak sah tanpa wali</label>
+                          <label><input type="radio" name="q26" value="0"> d. Sah jika disetujui oleh KUA</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>27. Apa hukum talak dalam Islam?</p>
+                          <label><input type="radio" name="q27" value="0"> a. Wajib</label>
+                          <label><input type="radio" name="q27" value="0"> b. Haram</label>
+                          <label><input type="radio" name="q27" value="1"> c. Mubah, tapi dibenci Allah</label>
+                          <label><input type="radio" name="q27" value="0"> d. Sunnah</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>28. Apa tujuan utama pernikahan menurut Islam?</p>
+                          <label><input type="radio" name="q28" value="0"> a. Status sosial</label>
+                          <label><input type="radio" name="q28" value="1"> b. Menyempurnakan separuh agama</label>
+                          <label><input type="radio" name="q28" value="0"> c. Menambah keturunan</label>
+                          <label><input type="radio" name="q28" value="0"> d. Menghindari tekanan sosial</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>29. Apa isi pokok surat Al-Kafirun?</p>
+                          <label><input type="radio" name="q29" value="0"> a. Perintah menikah</label>
+                          <label><input type="radio" name="q29" value="1"> b. Prinsip toleransi dan tidak mencampuradukkan ibadah</label>
+                          <label><input type="radio" name="q29" value="0"> c. Kisah nabi dan umatnya</label>
+                          <label><input type="radio" name="q29" value="0"> d. Kewajiban zakat</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>30. Berikut ini yang termasuk ayat dari surat Al-Kafirun adalah:</p>
+                          <label><input type="radio" name="q30" value="0"> a. "Qul huwallahu ahad"</label>
+                          <label><input type="radio" name="q30" value="1"> b. "Lakum diinukum wa liya diin"</label>
+                          <label><input type="radio" name="q30" value="0"> c. "Alladzii ath'amahum min juu'"</label>
+                          <label><input type="radio" name="q30" value="0"> d. "Fabiayyi aalaaa’i Rabbikuma tukazzibaan"</label>
+                        </div>
+                        
+                        <div class="question">
+              <p>31. Apa yang harus diyakini dalam rukun iman pertama?</p>
+              <label><input type="radio" name="q31" value="1"> a. Percaya kepada Allah</label>
+              <label><input type="radio" name="q31" value="0"> b. Percaya kepada malaikat</label>
+              <label><input type="radio" name="q31" value="0"> c. Percaya kepada kitab-kitab Allah</label>
+              <label><input type="radio" name="q31" value="0"> d. Percaya kepada rasul-rasul Allah</label>
+            </div>
+            
+                        
+                        <div class="question">
+              <p>32. Apa saja rukun Islam yang harus dilakukan oleh umat Muslim?</p>
+              <label><input type="radio" name="q32" value="1"> a. Syahadat, sholat, zakat, puasa, haji</label>
+              <label><input type="radio" name="q32" value="0"> b. Syahadat, doa, zakat, puasa, khitan</label>
+              <label><input type="radio" name="q32" value="0"> c. Syahadat, sholat, puasa, haji, sedekah</label>
+              <label><input type="radio" name="q32" value="0"> d. Sholat, zakat, puasa, khitan, haji</label>
+            </div>
+            
+                        <div class="question">
+              <p>33. Apa yang harus dibaca saat mulai melaksanakan sholat?</p>
+              <label><input type="radio" name="q33" value="1"> a. Takbiratul Ihram</label>
+              <label><input type="radio" name="q33" value="0"> b. Surah Al-Fatihah</label>
+              <label><input type="radio" name="q33" value="0"> c. Doa iftitah</label>
+              <label><input type="radio" name="q33" value="0"> d. Tasbih</label>
+            </div>
+            
+                        
+                        <div class="question">
+                          <p>34. Ayat terakhir surat Al-Quraisy adalah:</p>
+                          <label><input type="radio" name="q34" value="1"> a. "Alladzii ath’amahum min juu’in wa aamanahum min khauf"</label>
+                          <label><input type="radio" name="q34" value="0"> b. "Qul a'udzu birabbil falaq"</label>
+                          <label><input type="radio" name="q34" value="0"> c. "Wa lau annana ahlaka wa ummatan"</label>
+                          <label><input type="radio" name="q34" value="0"> d. "Inna ma'al usri yusra"</label>
+                        </div>
+
+                        <div class="question">
+                          <p>35. Lembaga resmi pemerintah yang mengesahkan pernikahan bagi umat Islam di Indonesia adalah:</p>
+                          <label><input type="radio" name="q35" value="0"> a. Catatan Sipil</label>
+                          <label><input type="radio" name="q35" value="0"> b. Pengadilan Negeri</label>
+                          <label><input type="radio" name="q35" value="1"> c. Kantor Urusan Agama (KUA)</label>
+                          <label><input type="radio" name="q35" value="0"> d. MUI</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>36. Undang-undang yang mengatur tentang perkawinan di Indonesia adalah:</p>
+                          <label><input type="radio" name="q36" value="0"> a. UU No. 10 Tahun 2004</label>
+                          <label><input type="radio" name="q36" value="1"> b. UU No. 1 Tahun 1974</label>
+                          <label><input type="radio" name="q36" value="0"> c. UU No. 13 Tahun 2003</label>
+                          <label><input type="radio" name="q36" value="0"> d. UU No. 23 Tahun 2002</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>37. Batas usia minimal menikah berdasarkan UU Perkawinan yang telah direvisi tahun 2019 adalah:</p>
+                          <label><input type="radio" name="q37" value="0"> a. Laki-laki 21 tahun, perempuan 18 tahun</label>
+                          <label><input type="radio" name="q37" value="0"> b. Laki-laki 19 tahun, perempuan 16 tahun</label>
+                          <label><input type="radio" name="q37" value="1"> c. Laki-laki dan perempuan 19 tahun</label>
+                          <label><input type="radio" name="q37" value="0"> d. Laki-laki dan perempuan 17 tahun</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>38. Pernikahan dianggap sah secara hukum negara jika:</p>
+                          <label><input type="radio" name="q38" value="0"> a. Diadakan pesta</label>
+                          <label><input type="radio" name="q38" value="0"> b. Dihadiri oleh tokoh masyarakat</label>
+                          <label><input type="radio" name="q38" value="1"> c. Dicatatkan di KUA atau Catatan Sipil</label>
+                          <label><input type="radio" name="q38" value="0"> d. Ada foto dan video sebagai bukti</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>39. Salah satu tujuan pencatatan pernikahan oleh negara adalah:</p>
+                          <label><input type="radio" name="q39" value="0"> a. Agar bisa diberi kado oleh negara</label>
+                          <label><input type="radio" name="q39" value="0"> b. Untuk mendapatkan subsidi</label>
+                          <label><input type="radio" name="q39" value="1"> c. Sebagai perlindungan hukum bagi pasangan</label>
+                          <label><input type="radio" name="q39" value="0"> d. Supaya bebas pajak</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>40. Apa syarat administratif untuk menikah di KUA?</p>
+                          <label><input type="radio" name="q40" value="0"> a. Undangan pernikahan</label>
+                          <label><input type="radio" name="q40" value="0"> b. Surat pengantar RT dan RW</label>
+                          <label><input type="radio" name="q40" value="1"> c. Surat keterangan belum menikah dan fotokopi KTP</label>
+                          <label><input type="radio" name="q40" value="0"> d. Surat keterangan waris</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>41. Jika menikah di luar negeri, agar diakui secara hukum di Indonesia harus:</p>
+                          <label><input type="radio" name="q41" value="0"> a. Membayar pajak ke KBRI</label>
+                          <label><input type="radio" name="q41" value="0"> b. Mengundang tokoh adat</label>
+                          <label><input type="radio" name="q41" value="1"> c. Mendaftarkan di KBRI/KJRI dan melaporkan ke Disdukcapil</label>
+                          <label><input type="radio" name="q41" value="0"> d. Menyewa pengacara</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>42. Pasangan suami istri memiliki hak dan kewajiban yang diatur dalam:</p>
+                          <label><input type="radio" name="q42" value="0"> a. KUHP</label>
+                          <label><input type="radio" name="q42" value="1"> b. UU Perkawinan</label>
+                          <label><input type="radio" name="q42" value="0"> c. UU Warisan</label>
+                          <label><input type="radio" name="q42" value="0"> d. UU Perdagangan</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>43. Jika terjadi perceraian, siapa yang berwenang menyelesaikan bagi pasangan Muslim?</p>
+                          <label><input type="radio" name="q43" value="0"> a. Pengadilan Negeri</label>
+                          <label><input type="radio" name="q43" value="0"> b. Kantor Lurah</label>
+                          <label><input type="radio" name="q43" value="0"> c. Mahkamah Agung</label>
+                          <label><input type="radio" name="q43" value="1"> d. Pengadilan Agama</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>44. Akta nikah dikeluarkan oleh:</p>
+                          <label><input type="radio" name="q44" value="0"> a. Pengadilan Agama</label>
+                          <label><input type="radio" name="q44" value="1"> b. KUA (untuk Muslim) atau Catatan Sipil (non-Muslim)</label>
+                          <label><input type="radio" name="q44" value="0"> c. Kelurahan</label>
+                          <label><input type="radio" name="q44" value="0"> d. RW/RT setempat</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>45. Salah satu bentuk perlindungan hukum bagi istri dalam pernikahan adalah:</p>
+                          <label><input type="radio" name="q45" value="0"> a. Surat perjanjian rumah tangga</label>
+                          <label><input type="radio" name="q45" value="1"> b. Akta nikah</label>
+                          <label><input type="radio" name="q45" value="0"> c. Akta jual beli rumah</label>
+                          <label><input type="radio" name="q45" value="0"> d. Surat wasiat</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>46. Dalam hukum perdata, pernikahan yang tidak dicatat negara disebut:</p>
+                          <label><input type="radio" name="q46" value="0"> a. Nikah resmi</label>
+                          <label><input type="radio" name="q46" value="1"> b. Nikah siri</label>
+                          <label><input type="radio" name="q46" value="0"> c. Nikah kontrak</label>
+                          <label><input type="radio" name="q46" value="0"> d. Nikah mut’ah</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>47. Hak istri jika terjadi perceraian secara hukum negara adalah:</p>
+                          <label><input type="radio" name="q47" value="0"> a. Tidak memiliki hak apapun</label>
+                          <label><input type="radio" name="q47" value="0"> b. Mendapatkan pakaian dan perhiasan</label>
+                          <label><input type="radio" name="q47" value="1"> c. Nafkah iddah dan mut’ah jika memenuhi syarat</label>
+                          <label><input type="radio" name="q47" value="0"> d. Otomatis mendapatkan seluruh harta</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>48. Tujuan utama pemerintah mencatatkan pernikahan adalah:</p>
+                          <label><input type="radio" name="q48" value="0"> a. Untuk arsip keluarga</label>
+                          <label><input type="radio" name="q48" value="1"> b. Untuk menetapkan status hukum pasangan dan anak</label>
+                          <label><input type="radio" name="q48" value="0"> c. Untuk kebutuhan statistik</label>
+                          <label><input type="radio" name="q48" value="0"> d. Agar bisa mengurus KTP</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>49. Dalam UU No. 35 Tahun 2014 tentang Perlindungan Anak, pencatatan pernikahan penting karena:</p>
+                          <label><input type="radio" name="q49" value="0"> a. Menentukan jadwal vaksin</label>
+                          <label><input type="radio" name="q49" value="0"> b. Menentukan siapa wali kelas</label>
+                          <label><input type="radio" name="q49" value="1"> c. Menentukan status hukum anak</label>
+                          <label><input type="radio" name="q49" value="0"> d. Menentukan siapa RT</label>
+                        </div>
+                        
+                        <div class="question">
+                          <p>50. Jika ada pernikahan anak di bawah umur, maka harus melalui:</p>
+                          <label><input type="radio" name="q50" value="0"> a. Musyawarah keluarga</label>
+                          <label><input type="radio" name="q50" value="0"> b. Surat rekomendasi RT</label>
+                          <label><input type="radio" name="q50" value="1"> c. Izin dari pengadilan</label>
+                          <label><input type="radio" name="q50" value="0"> d. Laporan ke polisi</label>
+                        </div>
+
+            
+           
+            
+            
+            
+    
+            <!-- Tambahkan soal sesuai kebutuhan -->
+    
+            <br>
+            <button type="button" class="btn" onclick="submitQuiz()">Selesai Ujian</button>
+          </form>
+        </div>
+    
+        <!-- Section Hasil Ujian -->
+        <div id="resultSection" style="display:none;"></div>
+      </div>
+    </section>
+    
+    <!-- Styling untuk tampilan Ujian Kelayakan Nikah -->
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f4f6f8;
+        color: #2c3e50;
+        margin: 0;
+        padding: 0;
+      }
+    
+      #ujianKelayakanNikah {
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* agar selalu di tengah jika tinggi layar lebih besar dari konten */
+  background-color: #f8f9fa; /* opsional: latar belakang lembut */
+}
+
+#ujianKelayakanNikah .container {
+  max-width: 800px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 576px) {
+  #ujianKelayakanNikah .container {
+    padding: 20px 16px;
+  }
+}
+
+
+    
+      #ujianKelayakanNikah h2, h3 {
+        text-align: center;
+        color: #34495e;
+      }
+    
+      input[type="text"], button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+    
+      label {
+        font-weight: 500;
+        display: block;
+        margin-bottom: 5px;
+      }
+    
+      .btn {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        font-size: 16px;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background 0.2s;
+      }
+    
+      .btn:hover {
+        background-color: #2980b9;
+      }
+    
+      .question {
+        background: #f9f9f9;
+        padding: 15px;
+        margin-top: 15px;
+        border-left: 5px solid #3498db;
+        border-radius: 6px;
+      }
+    
+      .question p {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    
+      .question label {
+        display: block;
+        margin-bottom: 8px;
+      }
+    
+      #timer {
+        font-size: 18px;
+        font-weight: bold;
+        color: #e74c3c;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+    
+      #resultSection {
+        margin-top: 30px;
+        background-color: #fdfdfd;
+        border: 2px dashed #27ae60;
+        padding: 20px;
+        border-radius: 12px;
+      }
+    
+      .label-pass {
+        color: green;
+        font-weight: bold;
+      }
+    
+      .label-fail {
+        color: red;
+        font-weight: bold;
+      }
+    
+      .certificate {
+        text-align: center;
+        border: 3px solid #2ecc71;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+        background: #ecfef1;
+      }
+    
+      .certificate h3 {
+        margin-bottom: 12px;
+        color: #2ecc71;
+      }
+    
+      .certificate p {
+        margin: 8px 0;
+        font-size: 16px;
+      }
+    
+      @media screen and (max-width: 778px) {
+        #ujianKelayakanNikah .container {
+          padding: 15px;
+          margin: 25px;
+        }
+    
+        h2, h3 {
+          font-size: 22px;
+        }
+    
+        input[type="text"], button {
+          font-size: 14px;
+        }
+    
+        .btn {
+          font-size: 15px;
+        }
+    
+        .certificate p {
+          font-size: 15px;
+        }
+      }
+    
+      @media screen and (max-width: 480px) {
+        #ujianKelayakanNikah .container {
+          padding: 10px;
+        }
+    
+        h2 {
+          font-size: 20px;
+        }
+    
+        .question {
+          padding: 10px;
+        }
+    
+        .certificate {
+          padding: 15px;
+        }
+    
+        #timer {
+          font-size: 16px;
+        }
+      }
+    </style>
+    
+    <!-- JavaScript untuk fungsionalitas Ujian Kelayakan Nikah -->
+    <script>
+      const totalQuestions = 50;
+      let countdown;
+      let timeLeft = 50 * 60;
+    
+      function startExam() {
+        const suami = document.getElementById('suami').value.trim();
+        const istri = document.getElementById('istri').value.trim();
+        const kua = document.getElementById('kuaCipunagara').checked;
+    
+        if (!suami || !istri || !kua) {
+          alert("Mohon lengkapi nama calon dan ceklis KUA Cipunagara.");
+          return;
+        }
+    
+        document.getElementById('formSection').style.display = "none";
+        document.getElementById('quizSection').style.display = "block";
+    
+        startTimer();
+      }
+    
+      function startTimer() {
+        updateTimerDisplay();
+        countdown = setInterval(() => {
+          timeLeft--;
+          updateTimerDisplay();
+    
+          if (timeLeft <= 0) {
+            clearInterval(countdown);
+            alert("Waktu habis!");
+            submitQuiz(true);
+          }
+        }, 1000);
+      }
+    
+      function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        document.getElementById('timer').textContent = `Sisa waktu: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+      }
+    
+      function submitQuiz(auto = false) {
+    clearInterval(countdown);
+
+    let score = 0;
+    for (let i = 1; i <= totalQuestions; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (answer) {
+            score += parseInt(answer.value);
+        }
+    }
+
+    const percentage = (score / totalQuestions) * 100;
+const suami = document.getElementById('suami').value;
+const istri = document.getElementById('istri').value;
+const now = new Date();
+const tanggal = now.toLocaleDateString('id-ID', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+});
+const waktu = now.toLocaleTimeString('id-ID');
+
+const lulus = percentage >= 75;
+const hasilText = lulus ? "LULUS ✅" : "TIDAK LULUS ❌";
+const hasilHTML = lulus
+  ? `<span class="label-pass">${hasilText}</span>`
+  : `<span class="label-fail">${hasilText}</span>`;
+
+  
+// Escape tanda kutip satu dalam input agar tidak error di onclick
+const escapedSuami = suami.replace(/'/g, "\\'");
+const escapedIstri = istri.replace(/'/g, "\\'");
+const escapedHasil = hasilText.replace(/'/g, "\\'");
+
+const sertifikat = lulus ? `
+  <div class="certificate">
+    <h3>KELAYAKAN MENIKAH</h3>
+    <p>Dengan ini dinyatakan bahwa:</p>
+    <p><strong>${suami} & ${istri}</strong></p>
+    <p>Telah mengikuti Ujian Kelayakan Nikah</p>
+    <p>pada <strong>${tanggal}</strong> pukul <strong>${waktu}</strong></p>
+    <p>dan dinyatakan:</p>
+    <p style="font-size: 20px; font-weight: bold;">${hasilHTML}</p>
+    <button class="btn" onclick="downloadCertificate('${escapedSuami}', '${escapedIstri}', '${tanggal}', '${waktu}', '${escapedHasil}')">
+      Download Sertifikat
+    </button>
+  </div>` : '';
+
+document.getElementById('quizSection').style.display = "none";
+document.getElementById('resultSection').innerHTML =
+  `<h3>Hasil Ujian</h3>
+  <p><strong>Nama Calon Suami:</strong> ${suami}</p>
+  <p><strong>Nama Calon Istri:</strong> ${istri}</p>
+  <p><strong>Tanggal:</strong> ${tanggal}</p>
+  <p><strong>Waktu:</strong> ${waktu}</p>
+  <p><strong>Skor:</strong> ${percentage.toFixed(2)}%</p>
+  <p><strong>Status:</strong> ${hasilHTML}</p>
+  ${sertifikat}`;
+
+document.getElementById('resultSection').style.display = "block";
+
+}
+
+function downloadCertificate(suami, istri, tanggal, waktu, hasil) {
+  const { jsPDF } = window.jspdf;
+  
+  const doc = new jsPDF({
+  orientation: 'landscape',
+  unit: 'mm',
+  format: 'a4'
+});
+
+// Fungsi untuk ubah waktu ke "20.08 WIB"
+function formatWaktu(waktuString) {
+  const date = new Date(`1970-01-01T${waktuString}`);
+  const jam = String(date.getHours()).padStart(2, '0');
+  const menit = String(date.getMinutes()).padStart(2, '0');
+  return `${jam}.${menit} WIB`;
+}
+
+// Muat gambar background
+const img = new Image();
+img.src = 'assets/img/sertifikat2.png';
+
+img.onload = function () {
+  // Tambah background (ukuran landscape: 297 x 210 mm)
+  doc.addImage(img, 'PNG', 0, 0, 297, 210);
+
+  
+
+  // Konten Sertifikat
+  doc.setFontSize(12);
+  const startY = 100;
+  const lineHeight = 10;
+  const contentCenterX = 148.5; // Tengah halaman landscape A4
+const namaPasangan = `${suami} & ${istri}`;
+const teksTanggal = `pada ${tanggal}`;
+
+// Baris pertama: nama pasangan
+doc.setFont("Poppins", "italic");
+doc.setFontSize(28);
+doc.text(namaPasangan, contentCenterX, startY, { align: "center" });
+
+// Baris kedua: tanggal, font lebih kecil
+doc.setFontSize(14);
+doc.text(teksTanggal, contentCenterX, startY + 10, { align: "center" });
+
+
+
+  
+
+ 
+  // Simpan PDF
+  const fileName = `Sertifikat_${suami}_${istri}.pdf`.replace(/\s+/g, "_");
+  doc.save(fileName);
+};
+
+img.onerror = function () {
+  alert("Gagal memuat gambar background. Periksa path dan ekstensi file.");
+};
+
+}
+
+    </script>
+    
+  
+
+  
+  
+  
+  
+       
+        <!-- App badge section-->
+       
+        <!-- Footer-->
+        <footer class="bg-black text-center py-5">
+            <div class="container px-5">
+                <div class="text-white-50 small">
+                    <div class="mb-2">&copy; KUA Cipunagara 2025. All Rights Reserved. - mfahmybm</div>
+                    <div class="mb-2"></div>
+                </div>
+            </div>
+        </footer>
+        <!-- Feedback Modal-->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                        <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
+                        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body border-0 p-4">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <label for="phone">Phone number</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Message</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary rounded-pill btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
